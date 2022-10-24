@@ -5,16 +5,20 @@ class Account {
   }
 
   deposit (amountDeposited) {
-    this.transactions.unshift({
-      date: new Date().toDateString(),
-      amount: amountDeposited,
-      transactionType: 'deposit',
-      balance: amountDeposited + this.balanceAmount
-    })
+    if (amountDeposited < 0) {
+      return 'Invalid transaction'
+    } else {
+      this.transactions.unshift({
+        date: new Date().toDateString(),
+        amount: amountDeposited,
+        transactionType: 'deposit',
+        balance: amountDeposited + this.balanceAmount
+      })
+    }
   }
 
   withdrawal (amountWithdrawn) {
-    if (amountWithdrawn > this.balanceAmount) {
+    if (amountWithdrawn > this.balanceAmount || amountWithdrawn <= 0) {
       return 'Invalid transaction'
     } else {
       this.transactions.unshift({

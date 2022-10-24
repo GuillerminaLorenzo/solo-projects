@@ -8,6 +8,12 @@ describe('account', () => {
     expect(result).toEqual(1000)
   })
 
+  it('makes a deposit of -1000', () => {
+    const acc = new Account()
+    const result = acc.deposit(-1000)
+    expect(result).toEqual('Invalid transaction')
+  })
+
   it('makes a deposit of 1000 and a withdrawal of 500', () => {
     const acc = new Account()
     acc.deposit(1000)
@@ -21,6 +27,12 @@ describe('account', () => {
     const acc = new Account()
     acc.deposit(1000)
     const result = acc.withdrawal(5000)
+    expect(result).toEqual('Invalid transaction')
+  })
+
+  it('makes a withdrawal of -1000', () => {
+    const acc = new Account()
+    const result = acc.withdrawal(-1000)
     expect(result).toEqual('Invalid transaction')
   })
 })
