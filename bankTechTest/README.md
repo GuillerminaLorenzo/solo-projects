@@ -79,4 +79,4 @@ node app.js
   ```
 
 ## Test coverage
-![alt text](https://github.com/GuillerminaLorenzo/solo-projects/blob/main/bankTechTest/test-coverage.png)
+![alt text](https://github.com/GuillerminaLorenzo/solo-projects/blob/c80938b5d05e6db4ee89ec9713939ebdbdc22399/bankTechTest/test-coverage.png)
