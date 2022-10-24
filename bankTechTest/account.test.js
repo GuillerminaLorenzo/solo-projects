@@ -11,6 +11,7 @@ describe('account', () => {
   it('makes a deposit of 1000 and a withdrawal of 500', () => {
     const acc = new Account()
     acc.deposit(1000)
+    acc.balance()
     acc.withdrawal(500)
     const result = acc.balance()
     expect(result).toEqual(500)

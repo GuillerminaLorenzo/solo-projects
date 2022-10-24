@@ -11,7 +11,6 @@ class Account {
       transactionType: 'deposit',
       balance: amountDeposited + this.balanceAmount
     })
-    this.balance()
   }
 
   withdrawal (amountWithdrawn) {
@@ -24,7 +23,6 @@ class Account {
         transactionType: 'withdrawal',
         balance: -amountWithdrawn + this.balanceAmount
       })
-      this.balance()
     }
   }
 

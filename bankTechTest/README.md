@@ -10,11 +10,11 @@ Initialising an account, you could make transactions using the functions deposit
 **Account**
 ```javascript
 deposit(amountDeposited)  // amount of money deposited
-// makes the deposit and saves the new balance
+// makes the deposit 
 
 withdrawal(amountWithdrawn)  // amount of money withdrawn
 // if the withdrawal is smaller than the current balance, the transaction is invalid
-// makes the withdrawal and saves the new balance
+// makes the withdrawal 
 
 balance() 
 // updates the balance after the transactions
