@@ -73,4 +73,4 @@ getStatement()
   ```
 
 ## Test coverage
-![Alt text](/path/to/test-coverage.png)
+![alt text](https://github.com/GuillerminaLorenzo/solo-projects/blob/main/bankTechTest/test-coverage.png)
