@@ -1,7 +1,7 @@
 class BankStatement {
    constructor(transactions){
       this.transactions = transactions;
-      this.firstStatement = "    date || credit || debit || balance"
+      this.firstStatement = "date || credit || debit || balance"
       this.statement = []; 
    }
 
@@ -16,9 +16,6 @@ class BankStatement {
       });
       return this.statement.join('\n');
    }
-
-
- 
 }
 
 module.exports = BankStatement;
