@@ -1,15 +1,14 @@
 class Account {
     constructor(){
-        this.account = {
-            "transactions": [],
-        };
+        this.transactions = [],
         this.balanceAmount = 0;
     }
     
     deposit(amountDeposited){
-        this.account.transactions.unshift({"date": new Date().toDateString(), 
+        this.transactions.unshift({"date": new Date().toDateString(), 
                                         "amount": amountDeposited,
-                                        "transactionType": "deposit"});
+                                        "transactionType": "deposit",
+                                        "balance": amountDeposited + this.balanceAmount });
         this.balance();
     }
 
@@ -17,15 +16,16 @@ class Account {
         if (amountWithdrawn > this.balanceAmount) {
             return "Invalid transaction";
         }else {
-            this.account.transactions.unshift({"date": new Date().toDateString(), 
+            this.transactions.unshift({"date": new Date().toDateString(), 
                                             "amount": -amountWithdrawn, 
-                                            "transactionType": "withdrawal"});
+                                            "transactionType": "withdrawal",
+                                            "balance": -amountWithdrawn + this.balanceAmount});
             this.balance();
         }
     }
 
     balance(){
-        const getAmounts = this.account.transactions.map(transaction => transaction.amount);
+        const getAmounts = this.transactions.map(transaction => transaction.amount);
         const totalAmount = getAmounts.reduce((a, b) => a + b, 0);
         this.balanceAmount = totalAmount
         return totalAmount
