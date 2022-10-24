@@ -70,6 +70,7 @@ getStatement()
   ```bash
   npm run lint              # linter only
   jest                      # unit tests only
+  jest --coverage           # test coverage
   ```
 
 ## Test coverage
