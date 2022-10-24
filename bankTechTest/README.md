@@ -38,7 +38,7 @@ getStatement()
 - [ESLint](https://eslint.org) for linting.
 - [Jest](https://jestjs.io/) for testing.
 
-## If you want to try this on your computer, download this repo and follow these instructions:
+## If you want to try this on your computer follow these instructions:
 
 ### Install Node.js
 
