@@ -29,12 +29,10 @@ class Account {
   }
 
   balance () {
-    const getAmounts = this.transactions.map(
+    this.balanceAmount = this.transactions.map(
       (transaction) => transaction.amount
-    )
-    const totalAmount = getAmounts.reduce((a, b) => a + b, 0)
-    this.balanceAmount = totalAmount
-    return totalAmount
+    ).reduce((a, b) => a + b, 0)
+    return this.balanceAmount
   }
 }
 
