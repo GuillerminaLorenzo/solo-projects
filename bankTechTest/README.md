@@ -63,6 +63,11 @@ getStatement()
    ```
 4. Install an ESLint plugin for your editor. For example: [linter-eslint](https://github.com/AtomLinter/linter-eslint) for Atom.
 
+### How to run the program
+
+```
+node.js app.js
+```
 
 ### How to run the tests
 
