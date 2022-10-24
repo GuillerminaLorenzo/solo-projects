@@ -66,7 +66,7 @@ getStatement()
 ### How to run the program
 
 ```
-node.js app.js
+node app.js
 ```
 
 ### How to run the tests
