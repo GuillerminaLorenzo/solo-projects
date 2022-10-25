@@ -22,44 +22,39 @@ class Shop {
       const sellInLessThanEleven = item.sellIn < 11
       const sellInLessThanSix = item.sellIn < 6
 
-
       if (!AgedBrie && !Backstage) {
-          if (qualityBiggerThanZero && !Sulfuras) {
+        if (qualityBiggerThanZero && !Sulfuras) {
+          item.quality -= 1
+        }
+      } else if (qualityLessThanFifty) {
+        item.quality += 1;
+        if (Backstage) {
+          if (sellInLessThanEleven) {           
+            item.quality += 1         
+          }
+          if (sellInLessThanSix) {
+            item.quality += 1
+          }
+        }
+      }
+
+      if (!Sulfuras) {
+        item.sellIn -= 1;
+      }
+
+      if (item.sellIn < 0) {
+        if (!AgedBrie) {
+          if (!Backstage) {
+            if (qualityBiggerThanZero && !Sulfuras) {
               item.quality -= 1
-          }
-        } else {
-          if (qualityLessThanFifty) {
-            item.quality += 1;
-            if (Backstage) {
-              if (sellInLessThanEleven && qualityLessThanFifty) {           
-                item.quality += 1         
-              }
-              if (sellInLessThanSix && qualityLessThanFifty) {
-                item.quality += 1
-              }
-            }
-          }
-        }
-
-        if (!Sulfuras) {
-          item.sellIn -= 1;
-        }
-
-        if (item.sellIn < 0) {
-          if (!AgedBrie) {
-            if (!Backstage) {
-              if (qualityBiggerThanZero && !Sulfuras) {
-                  item.quality -= 1
-              }
-            } else {
-              item.quality -= item.quality;
             }
           } else {
-            if (qualityLessThanFifty) {
-              item.quality += 1;
-            }
+            item.quality = 0;
           }
+        } else if (qualityLessThanFifty) {
+          item.quality += 1;
         }
+      }
     }) 
     return this.items
   }
