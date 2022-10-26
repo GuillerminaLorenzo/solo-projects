@@ -21,7 +21,7 @@ class Account {
     } else {
       this.transactions.unshift({
         date: this.dateFormatter(),
-        amount: amountDeposited,
+        amount: parseFloat(amountDeposited.toFixed(2)),
         transactionType: 'deposit',
         balance: amountDeposited + this.balanceAmount
       })
@@ -34,7 +34,7 @@ class Account {
     } else {
       this.transactions.unshift({
         date: this.dateFormatter(),
-        amount: -amountWithdrawn,
+        amount: parseFloat(-amountWithdrawn.toFixed(2)),
         transactionType: 'withdrawal',
         balance: -amountWithdrawn + this.balanceAmount
       })

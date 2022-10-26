@@ -11,21 +11,21 @@ describe('Bank Statements', () => {
     const acc = [
       {
         date: '24/10/2022',
-        amount: -500,
+        amount: -500.00,
         transactionType: 'withdrawal',
-        balance: 2500
+        balance: 2500.00
       },
       {
         date: '24/10/2022',
-        amount: 2000,
+        amount: 2000.00,
         transactionType: 'deposit',
-        balance: 3000
+        balance: 3000.00
       },
       {
         date: '24/10/2022',
-        amount: 1000,
+        amount: 1000.00,
         transactionType: 'deposit',
-        balance: 1000
+        balance: 1000.00
       }
     ]
     const bank = new BankStatement(acc)

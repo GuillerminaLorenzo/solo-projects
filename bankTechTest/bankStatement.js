@@ -14,15 +14,15 @@ class BankStatement {
     this.transactions.forEach((transaction) => {
       if (transaction.transactionType === 'deposit') {
         this.statement.push(
-          `${transaction.date} || ${Math.abs(transaction.amount)}.00 || || ${
+          `${transaction.date} || ${Math.abs(transaction.amount)} || || ${
             transaction.balance
-          }.00`
+          }`
         )
       } else {
         this.statement.push(
-          `${transaction.date} || || ${Math.abs(transaction.amount)}.00 || ${
+          `${transaction.date} || || ${Math.abs(transaction.amount)} || ${
             transaction.balance
-          }.00`
+          }`
         )
       }
     })
