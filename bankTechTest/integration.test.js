@@ -15,7 +15,7 @@ describe('integration', () => {
     const result = bank.printStatement()
 
     expect(result).toBe(
-      'date || credit || debit || balance\nMon Oct 24 2022 || || 500.00 || 2500.00\nMon Oct 24 2022 || 2000.00 || || 3000.00\nMon Oct 24 2022 || 1000.00 || || 1000.00'
+      'date || credit || debit || balance\n24/10/2022 || || 500.00 || 2500.00\n24/10/2022 || 2000.00 || || 3000.00\n24/10/2022 || 1000.00 || || 1000.00'
     )
   })
 })

@@ -4,12 +4,17 @@ class Account {
     this.balanceAmount = 0
   }
 
+  dateFormatter () {
+    const date = new Date()
+    return `${date.getUTCDate()}/${date.getUTCMonth() + 1}/${date.getUTCFullYear()}`
+  }
+
   deposit (amountDeposited) {
     if (amountDeposited < 0) {
       return 'Invalid transaction'
     } else {
       this.transactions.unshift({
-        date: new Date().toDateString(),
+        date: this.dateFormatter(),
         amount: amountDeposited,
         transactionType: 'deposit',
         balance: amountDeposited + this.balanceAmount
@@ -22,7 +27,7 @@ class Account {
       return 'Invalid transaction'
     } else {
       this.transactions.unshift({
-        date: new Date().toDateString(),
+        date: this.dateFormatter(),
         amount: -amountWithdrawn,
         transactionType: 'withdrawal',
         balance: -amountWithdrawn + this.balanceAmount
