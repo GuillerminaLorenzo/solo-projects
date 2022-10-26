@@ -4,12 +4,24 @@ const BankStatement = require('./bankStatement')
 describe('integration', () => {
   it('makes transactions in an account and prints the bank statement', () => {
     const acc = new Account()
-    acc.deposit(1000)
-    acc.balance()
-    acc.deposit(2000)
-    acc.balance()
-    acc.withdrawal(500)
-    acc.balance()
+    acc.transactions = ([{
+      date: '24/10/2022',
+      amount: -500,
+      transactionType: 'withdrawal',
+      balance: 2500
+    },
+    {
+      date: '24/10/2022',
+      amount: 2000,
+      transactionType: 'deposit',
+      balance: 3000
+    },
+    {
+      date: '24/10/2022',
+      amount: 1000,
+      transactionType: 'deposit',
+      balance: 1000
+    }])
 
     const bank = new BankStatement(acc.transactions)
     const result = bank.printStatement()
