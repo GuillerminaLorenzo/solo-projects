@@ -12,6 +12,9 @@ Initialising an account, you could make transactions using the functions deposit
 dateFormatter()
 // creates new date with the right format
 
+checkValidInput(amount)
+//checks for valid amount
+
 deposit(amountDeposited)  // amount of money deposited
 // makes the deposit 
 
