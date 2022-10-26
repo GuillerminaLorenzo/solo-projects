@@ -1,20 +1,20 @@
 const Account = require('./account')
 
 describe('account', () => {
-  it('makes a deposit of 1000', () => {
+  it('makes a deposit, expects the correct balance', () => {
     const acc = new Account()
     acc.deposit(1000)
     const result = acc.balance()
     expect(result).toEqual(1000)
   })
 
-  it('makes a deposit of -1000', () => {
+  it('recognises invalid negative deposits', () => {
     const acc = new Account()
     const result = acc.deposit(-1000)
     expect(result).toEqual('Invalid transaction')
   })
 
-  it('makes a deposit of 1000 and a withdrawal of 500', () => {
+  it('makes a deposit and a withdrawal, expects the correct balance', () => {
     const acc = new Account()
     acc.deposit(1000)
     acc.balance()
@@ -23,14 +23,14 @@ describe('account', () => {
     expect(result).toEqual(500)
   })
 
-  it('tries to withdraw more money than the balance', () => {
+  it('recognises invalid withdrawal', () => {
     const acc = new Account()
     acc.deposit(1000)
     const result = acc.withdrawal(5000)
     expect(result).toEqual('Invalid transaction')
   })
 
-  it('makes a withdrawal of -1000', () => {
+  it('recognises invalid negative withdrawal', () => {
     const acc = new Account()
     const result = acc.withdrawal(-1000)
     expect(result).toEqual('Invalid transaction')
