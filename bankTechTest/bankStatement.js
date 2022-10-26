@@ -1,12 +1,11 @@
 class BankStatement {
   constructor (transactions) {
     this.transactions = transactions
-    this.firstStatement = 'date || credit || debit || balance'
     this.statement = []
   }
 
   printStatement () {
-    this.statement.push(this.firstStatement)
+    this.statement.push('date || credit || debit || balance')
     this.addTransaction()
     return this.statement.join('\n')
   }
