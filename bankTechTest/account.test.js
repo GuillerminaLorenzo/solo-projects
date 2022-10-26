@@ -10,8 +10,9 @@ describe('account', () => {
 
   it('recognises invalid negative deposits', () => {
     const acc = new Account()
-    const result = acc.deposit(-1000)
-    expect(result).toEqual('Invalid transaction')
+    expect(() => {
+      acc.deposit(-1000)
+    }).toThrow('Invalid transaction')
   })
 
   it('makes a deposit and a withdrawal, expects the correct balance', () => {
@@ -26,13 +27,16 @@ describe('account', () => {
   it('recognises invalid withdrawal', () => {
     const acc = new Account()
     acc.deposit(1000)
-    const result = acc.withdrawal(5000)
-    expect(result).toEqual('Invalid transaction')
+    acc.balance()
+    expect(() => {
+      acc.withdrawal(5000)
+    }).toThrow('Invalid transaction')
   })
 
   it('recognises invalid negative withdrawal', () => {
     const acc = new Account()
-    const result = acc.withdrawal(-1000)
-    expect(result).toEqual('Invalid transaction')
+    expect(() => {
+      acc.withdrawal(-1000)
+    }).toThrow('Invalid transaction')
   })
 })

@@ -10,8 +10,8 @@ class Account {
   }
 
   deposit (amountDeposited) {
-    if (amountDeposited < 0) {
-      return 'Invalid transaction'
+    if (amountDeposited <= 0) {
+      throw new Error('Invalid transaction')
     } else {
       this.transactions.unshift({
         date: this.dateFormatter(),
@@ -24,7 +24,7 @@ class Account {
 
   withdrawal (amountWithdrawn) {
     if (amountWithdrawn > this.balanceAmount || amountWithdrawn <= 0) {
-      return 'Invalid transaction'
+      throw new Error('Invalid transaction')
     } else {
       this.transactions.unshift({
         date: this.dateFormatter(),
