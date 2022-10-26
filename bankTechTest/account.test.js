@@ -8,13 +8,6 @@ describe('account', () => {
     expect(result).toEqual(1000)
   })
 
-  it('recognises invalid negative deposits', () => {
-    const acc = new Account()
-    expect(() => {
-      acc.deposit(-1000)
-    }).toThrow('Invalid transaction')
-  })
-
   it('makes a deposit and a withdrawal, expects the correct balance', () => {
     const acc = new Account()
     acc.deposit(1000)
@@ -22,6 +15,13 @@ describe('account', () => {
     acc.withdrawal(500)
     const result = acc.balance()
     expect(result).toEqual(500)
+  })
+
+  it('recognises invalid negative deposits', () => {
+    const acc = new Account()
+    expect(() => {
+      acc.deposit(-1000)
+    }).toThrow('Invalid transaction')
   })
 
   it('recognises invalid withdrawal', () => {
@@ -37,6 +37,34 @@ describe('account', () => {
     const acc = new Account()
     expect(() => {
       acc.withdrawal(-1000)
+    }).toThrow('Invalid transaction')
+  })
+
+  it('recognises invalid amount for deposit', () => {
+    const acc = new Account()
+    expect(() => {
+      acc.deposit('1000')
+    }).toThrow('Invalid transaction')
+  })
+
+  it('recognises invalid amount for withdrawal', () => {
+    const acc = new Account()
+    expect(() => {
+      acc.withdrawal('1000')
+    }).toThrow('Invalid transaction')
+  })
+
+  it('should throw an error if deposit is called without an argument', () => {
+    const acc = new Account()
+    expect(() => {
+      acc.deposit()
+    }).toThrow('Invalid transaction')
+  })
+
+  it('should throw an error if withdrawal called without an argument', () => {
+    const acc = new Account()
+    expect(() => {
+      acc.withdrawal()
     }).toThrow('Invalid transaction')
   })
 })
