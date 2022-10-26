@@ -9,6 +9,9 @@ Initialising an account, you could make transactions using the functions deposit
 
 **Account**
 ```javascript
+dateFormatter()
+// creates new date with the right format
+
 deposit(amountDeposited)  // amount of money deposited
 // makes the deposit 
 
