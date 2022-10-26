@@ -26,7 +26,7 @@ balance()
 printStatement() 
 // returns that array joined(as string)
 
-getStatement()
+addTransaction()
 // stores all the transactions in an array
 ```
 

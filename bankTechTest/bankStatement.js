@@ -7,11 +7,11 @@ class BankStatement {
 
   printStatement () {
     this.statement.push(this.firstStatement)
-    this.getStatement()
+    this.addTransaction()
     return this.statement.join('\n')
   }
 
-  getStatement () {
+  addTransaction () {
     this.transactions.forEach((transaction) => {
       if (transaction.transactionType === 'deposit') {
         this.statement.push(
