@@ -32,6 +32,9 @@ balance()
 printStatement() 
 // returns that array joined(as string)
 
+amountFormatter(amount)
+// returns formatted amount with two decimals
+
 addTransaction()
 // stores all the transactions in an array
 ```
