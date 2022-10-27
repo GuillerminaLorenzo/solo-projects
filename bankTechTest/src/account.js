@@ -9,36 +9,14 @@ class Account {
     return `${date.getUTCDate()}/${date.getUTCMonth() + 1}/${date.getUTCFullYear()}`
   }
 
-  checkValidInput (amount) {
-    if (amount <= 0 || amount === undefined || typeof amount !== 'number') {
-      return true
+  newTransaction (transaction, transactionAmount) {
+    const newTransaction = {
+      date: this.dateFormatter(),
+      amount: transactionAmount,
+      transactionType: transaction,
+      balance: transactionAmount + this.balanceAmount
     }
-  }
-
-  deposit (amountDeposited) {
-    if (this.checkValidInput(amountDeposited)) {
-      throw new Error('Invalid transaction')
-    } else {
-      this.transactions.unshift({
-        date: this.dateFormatter(),
-        amount: amountDeposited,
-        transactionType: 'deposit',
-        balance: amountDeposited + this.balanceAmount
-      })
-    }
-  }
-
-  withdrawal (amountWithdrawn) {
-    if (this.checkValidInput(amountWithdrawn) || amountWithdrawn > this.balanceAmount) {
-      throw new Error('Invalid transaction')
-    } else {
-      this.transactions.unshift({
-        date: this.dateFormatter(),
-        amount: -amountWithdrawn,
-        transactionType: 'withdrawal',
-        balance: -amountWithdrawn + this.balanceAmount
-      })
-    }
+    this.transactions.unshift(newTransaction)
   }
 
   balance () {
