@@ -10,18 +10,22 @@ class BankStatement {
     return this.statement.join('\n')
   }
 
+  amountformatter (amount) {
+    return Math.abs(amount).toFixed(2)
+  }
+
   addTransaction () {
     this.transactions.forEach((transaction) => {
       if (transaction.transactionType === 'deposit') {
         this.statement.push(
-          `${transaction.date} || ${Math.abs(transaction.amount)} || || ${
-            transaction.balance
+          `${transaction.date} || ${this.amountformatter(transaction.amount)} || || ${
+            this.amountformatter(transaction.balance)
           }`
         )
       } else {
         this.statement.push(
-          `${transaction.date} || || ${Math.abs(transaction.amount)} || ${
-            transaction.balance
+          `${transaction.date} || || ${this.amountformatter(transaction.amount)} || ${
+            this.amountformatter(transaction.balance)
           }`
         )
       }

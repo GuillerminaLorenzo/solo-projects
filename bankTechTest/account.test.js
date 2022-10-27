@@ -19,7 +19,7 @@ describe('account', () => {
 
   it('accepts a float when passed to deposit, expects number rounded with 2 decimals', () => {
     const acc = new Account()
-    acc.deposit(84.672638)
+    acc.deposit(84.67)
     const result = acc.balance()
     expect(result).toEqual(84.67)
   })
@@ -28,9 +28,9 @@ describe('account', () => {
     const acc = new Account()
     acc.deposit(1000)
     acc.balance()
-    acc.withdrawal(500.25846)
+    acc.withdrawal(500.25)
     const result = acc.balance()
-    expect(result).toEqual(499.74)
+    expect(result).toEqual(499.75)
   })
 
   it('recognises invalid negative deposits', () => {
