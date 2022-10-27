@@ -1,5 +1,5 @@
-const Account = require('./account')
-const BankStatement = require('./bankStatement')
+const Account = require('../src/account')
+const BankStatement = require('../src/bankStatement')
 
 describe('integration', () => {
   it('makes transactions in an account and prints the bank statement', () => {

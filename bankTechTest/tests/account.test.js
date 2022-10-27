@@ -1,4 +1,4 @@
-const Account = require('./account')
+const Account = require('../src/account')
 
 describe('account', () => {
   it('makes a deposit, expects the correct balance', () => {
