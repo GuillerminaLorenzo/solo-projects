@@ -6,7 +6,7 @@ class BankStatement {
 
   printStatement () {
     this.statement.push('date || credit || debit || balance')
-    this.addTransaction()
+    this.addStatementLine()
     return this.statement.join('\n')
   }
 
@@ -14,7 +14,7 @@ class BankStatement {
     return Math.abs(amount).toFixed(2)
   }
 
-  addTransaction () {
+  addStatementLine () {
     this.transactions.forEach((transaction) => {
       if (transaction.transactionType === 'deposit') {
         this.statement.push(
