@@ -12,19 +12,25 @@ Initialising an account, you could make transactions using the functions deposit
 dateFormatter()
 // creates new date with the right format
 
-checkValidInput(amount)
-//checks for valid amount
-
-deposit(amountDeposited)  // amount of money deposited
-// makes the deposit 
-
-withdrawal(amountWithdrawn)  // amount of money withdrawn
-// if the withdrawal is smaller than the current balance, the transaction is invalid
-// makes the withdrawal 
+newTransaction (transaction, transactionAmount) // type of transaction and it's amount
+// creates a new transaction with the right format
 
 balance() 
 // updates the balance after the transactions
 // returns balance
+```
+
+**Transactions**
+```javascript
+checkValidInput(amount)
+//checks for valid amount
+
+deposit(amountDeposited)  // amount of money deposited
+// sets the new transaction as the deposit 
+
+withdrawal(amountWithdrawn)  // amount of money withdrawn
+// if the withdrawal is smaller than the current balance, the transaction is invalid
+// sets the new transaction as the withdrawal 
 ```
 
 **Bank Statement**
