@@ -1,12 +1,15 @@
-const Account = require('./account')
-const BankStatement = require('./bankStatement')
+const Account = require('./src/account')
+const BankStatement = require('./src/bankStatement')
+const Transaction = require('./src/transaction')
 
 const acc = new Account()
-acc.deposit(1000.00)
+const transaction = new Transaction(acc)
+
+transaction.deposit(1000.00)
 acc.balance()
-acc.deposit(2000.00)
+transaction.deposit(2000.00)
 acc.balance()
-acc.withdrawal(500.00)
+transaction.withdrawal(5000.00)
 acc.balance()
 
 const bank = new BankStatement(acc.transactions)
