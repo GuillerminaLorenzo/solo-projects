@@ -23,6 +23,10 @@ class Shop {
       const qualityBiggerThanZero = item.quality > 0
       const qualityLessThanFifty = item.quality < 50
 
+      if (!Sulfuras) {
+        item.sellIn -= 1
+      }
+
       if (specialNames) {
         if (qualityBiggerThanZero) {
           item.quality -= 1
@@ -32,21 +36,13 @@ class Shop {
           item.quality += 1
           if (Backstage) {
             if (sellInLessThanEleven) {
-              if (qualityLessThanFifty) {
-                item.quality += 1
-              }
+              item.quality += 1
             }
             if (sellInLessThanSix) {
-              if (qualityLessThanFifty) {
-                item.quality += 1
-              }
+              item.quality += 1
             }
           }
         }
-      }
-
-      if (!Sulfuras) {
-        item.sellIn -= 1
       }
 
       if (sellInLessThanZero) {
