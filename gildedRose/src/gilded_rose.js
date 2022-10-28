@@ -16,6 +16,9 @@ class Shop {
       const AgedBrie = item.name === 'Aged Brie'
       const Backstage = item.name === 'Backstage passes to a TAFKAL80ETC concert'
       const Sulfuras = item.name === 'Sulfuras, Hand of Ragnaros'
+      const sellInLessThanEleven = item.sellIn < 11
+      const sellInLessThanSix = item.sellIn < 6
+      const sellInLessThanZero = item.sellIn <= 0
 
       if (!AgedBrie && !Backstage) {
         if (item.quality > 0) {
@@ -27,12 +30,12 @@ class Shop {
         if (item.quality < 50) {
           item.quality = item.quality + 1
           if (Backstage) {
-            if (item.sellIn < 11) {
+            if (sellInLessThanEleven) {
               if (item.quality < 50) {
                 item.quality = item.quality + 1
               }
             }
-            if (item.sellIn < 6) {
+            if (sellInLessThanSix) {
               if (item.quality < 50) {
                 item.quality = item.quality + 1
               }
@@ -45,7 +48,7 @@ class Shop {
         item.sellIn = item.sellIn - 1
       }
 
-      if (item.sellIn < 0) {
+      if (sellInLessThanZero) {
         if (!AgedBrie) {
           if (!Backstage) {
             if (item.quality > 0) {

@@ -8,7 +8,7 @@ describe('Gilded Rose', () => {
   })
 
   it('Once the sell by date has passed, quality degrades twice as fast', () => {
-    const gildedRose = new Shop([new Item('Elixir of the Mongoose', 0, 4)])
+    const gildedRose = new Shop([new Item('+5 Dexterity Vest', 0, 4)])
     const items = gildedRose.updateQuality()
     expect(items[0].sellIn).toBe(-1)
     expect(items[0].quality).toBe(2)
