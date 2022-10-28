@@ -25,21 +25,21 @@ class Shop {
       if (!AgedBrie && !Backstage) {
         if (qualityBiggerThanZero) {
           if (!Sulfuras) {
-            item.quality = item.quality - 1
+            item.quality -= 1
           }
         }
       } else {
         if (qualityLessThanFifty) {
-          item.quality = item.quality + 1
+          item.quality += 1
           if (Backstage) {
             if (sellInLessThanEleven) {
               if (qualityLessThanFifty) {
-                item.quality = item.quality + 1
+                item.quality += 1
               }
             }
             if (sellInLessThanSix) {
               if (qualityLessThanFifty) {
-                item.quality = item.quality + 1
+                item.quality += 1
               }
             }
           }
@@ -47,7 +47,7 @@ class Shop {
       }
 
       if (!Sulfuras) {
-        item.sellIn = item.sellIn - 1
+        item.sellIn -= 1
       }
 
       if (sellInLessThanZero) {
@@ -55,15 +55,15 @@ class Shop {
           if (!Backstage) {
             if (qualityBiggerThanZero) {
               if (!Sulfuras) {
-                item.quality = item.quality - 1
+                item.quality -= 1
               }
             }
           } else {
-            item.quality = item.quality - item.quality
+            item.quality = 0
           }
         } else {
           if (qualityLessThanFifty) {
-            item.quality = item.quality + 1
+            item.quality += 1
           }
         }
       }
