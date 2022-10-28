@@ -19,24 +19,26 @@ class Shop {
       const sellInLessThanEleven = item.sellIn < 11
       const sellInLessThanSix = item.sellIn < 6
       const sellInLessThanZero = item.sellIn <= 0
+      const qualityBiggerThanZero = item.quality > 0
+      const qualityLessThanFifty = item.quality < 50
 
       if (!AgedBrie && !Backstage) {
-        if (item.quality > 0) {
+        if (qualityBiggerThanZero) {
           if (!Sulfuras) {
             item.quality = item.quality - 1
           }
         }
       } else {
-        if (item.quality < 50) {
+        if (qualityLessThanFifty) {
           item.quality = item.quality + 1
           if (Backstage) {
             if (sellInLessThanEleven) {
-              if (item.quality < 50) {
+              if (qualityLessThanFifty) {
                 item.quality = item.quality + 1
               }
             }
             if (sellInLessThanSix) {
-              if (item.quality < 50) {
+              if (qualityLessThanFifty) {
                 item.quality = item.quality + 1
               }
             }
@@ -51,7 +53,7 @@ class Shop {
       if (sellInLessThanZero) {
         if (!AgedBrie) {
           if (!Backstage) {
-            if (item.quality > 0) {
+            if (qualityBiggerThanZero) {
               if (!Sulfuras) {
                 item.quality = item.quality - 1
               }
@@ -60,7 +62,7 @@ class Shop {
             item.quality = item.quality - item.quality
           }
         } else {
-          if (item.quality < 50) {
+          if (qualityLessThanFifty) {
             item.quality = item.quality + 1
           }
         }
