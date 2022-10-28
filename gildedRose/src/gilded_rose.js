@@ -16,17 +16,16 @@ class Shop {
       const AgedBrie = item.name === 'Aged Brie'
       const Backstage = item.name === 'Backstage passes to a TAFKAL80ETC concert'
       const Sulfuras = item.name === 'Sulfuras, Hand of Ragnaros'
+      const specialNames = !AgedBrie && !Backstage && !Sulfuras
       const sellInLessThanEleven = item.sellIn < 11
       const sellInLessThanSix = item.sellIn < 6
       const sellInLessThanZero = item.sellIn <= 0
       const qualityBiggerThanZero = item.quality > 0
       const qualityLessThanFifty = item.quality < 50
 
-      if (!AgedBrie && !Backstage) {
+      if (specialNames) {
         if (qualityBiggerThanZero) {
-          if (!Sulfuras) {
-            item.quality -= 1
-          }
+          item.quality -= 1
         }
       } else {
         if (qualityLessThanFifty) {
