@@ -13,16 +13,20 @@ class Shop {
 
   updateQuality () {
     this.items.forEach((item) => {
-      if (item.name !== 'Aged Brie' && item.name !== 'Backstage passes to a TAFKAL80ETC concert') {
+      const AgedBrie = item.name === 'Aged Brie'
+      const Backstage = item.name === 'Backstage passes to a TAFKAL80ETC concert'
+      const Sulfuras = item.name === 'Sulfuras, Hand of Ragnaros'
+
+      if (!AgedBrie && !Backstage) {
         if (item.quality > 0) {
-          if (item.name !== 'Sulfuras, Hand of Ragnaros') {
+          if (!Sulfuras) {
             item.quality = item.quality - 1
           }
         }
       } else {
         if (item.quality < 50) {
           item.quality = item.quality + 1
-          if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
+          if (Backstage) {
             if (item.sellIn < 11) {
               if (item.quality < 50) {
                 item.quality = item.quality + 1
@@ -37,15 +41,15 @@ class Shop {
         }
       }
 
-      if (item.name !== 'Sulfuras, Hand of Ragnaros') {
+      if (!Sulfuras) {
         item.sellIn = item.sellIn - 1
       }
 
       if (item.sellIn < 0) {
-        if (item.name !== 'Aged Brie') {
-          if (item.name !== 'Backstage passes to a TAFKAL80ETC concert') {
+        if (!AgedBrie) {
+          if (!Backstage) {
             if (item.quality > 0) {
-              if (item.name !== 'Sulfuras, Hand of Ragnaros') {
+              if (!Sulfuras) {
                 item.quality = item.quality - 1
               }
             }
