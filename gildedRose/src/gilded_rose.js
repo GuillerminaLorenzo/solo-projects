@@ -30,37 +30,23 @@ class Shop {
       if (specialNames) {
         if (qualityBiggerThanZero) {
           item.quality -= 1
+          if (sellInLessThanZero) {
+            item.quality -= 1
+          }
         }
-      } else {
-        if (qualityLessThanFifty) {
+      } else if (Backstage) {
+        item.quality += 1
+        if (sellInLessThanEleven) {
           item.quality += 1
-          if (Backstage) {
-            if (sellInLessThanEleven) {
-              item.quality += 1
-            }
-            if (sellInLessThanSix) {
-              item.quality += 1
-            }
-          }
         }
-      }
-
-      if (sellInLessThanZero) {
-        if (!AgedBrie) {
-          if (!Backstage) {
-            if (qualityBiggerThanZero) {
-              if (!Sulfuras) {
-                item.quality -= 1
-              }
-            }
-          } else {
-            item.quality = 0
-          }
-        } else {
-          if (qualityLessThanFifty) {
-            item.quality += 1
-          }
+        if (sellInLessThanSix) {
+          item.quality += 1
         }
+        if (sellInLessThanZero) {
+          item.quality = 0
+        }
+      } else if (AgedBrie && qualityLessThanFifty) {
+        item.quality += 1
       }
     })
     return this.items
