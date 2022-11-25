@@ -21,4 +21,9 @@ jobs:
       - run: |
           cd bankTechTest
           npm test
-
+      - run: |
+          cd gildedRose
+          npm ci
+      - run: |
+          cd gildedRose
+          npm test
